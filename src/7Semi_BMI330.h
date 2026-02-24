@@ -708,7 +708,7 @@ public:
    * - true  : register written successfully
    * - false : bus write failed
    */
-  bool BMI330_7Semi::setFeatureInterrupts(uint16_t flags);
+  bool setFeatureInterrupts(uint16_t flags);
 
   /**
    * - Read INT1 Status Register (INT_STATUS_INT1, 0x0D).
