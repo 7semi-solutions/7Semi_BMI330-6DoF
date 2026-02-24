@@ -1695,11 +1695,11 @@ bool BMI330_7Semi::enableFeatureEngine(bool enable, uint32_t timeoutMs)
     }
 
     /**
-     * 1) Disable sensors
-     * 2) Write 0x012C to FEATURE_IO2
-     * 3) Write 0x0001 to FEATURE_IO_STATUS (sync)
-     * 4) Set FEATURE_CTRL.engine_en = 1
-     * 5) Poll FEATURE_IO1.error_status for 0b001
+     * 1 Disable sensors
+     * 2 Write 0x012C to FEATURE_IO2
+     * 3 Write 0x0001 to FEATURE_IO_STATUS (sync)
+     * 4 Set FEATURE_CTRL.engine_en = 1
+     * 5 Poll FEATURE_IO1.error_status for 0b001
      */
     if (!writeReg(BMI330_REG_FEATURE_IO2, 0x012Cu))
         return false;
@@ -1734,11 +1734,11 @@ bool BMI330_7Semi::applyFeatureIO() {
 }
 
 bool BMI330_7Semi::enableStepCounter(bool enable) {
-  return setFeature(BMI330_FEAT_STEP_COUNTER_EN, enable);
+  return setFeature(STEP_COUNTER, enable);
 }
 
 bool BMI330_7Semi::enableStepDetector(bool enable) {
-  return setFeature(BMI330_FEAT_STEP_DETECTOR_EN, enable);
+  return setFeature(STEP_DETECTOR, enable);
 }
 
 bool BMI330_7Semi::readStepCount(uint32_t &steps) {
